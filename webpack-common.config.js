@@ -50,7 +50,7 @@ const webpackConfigLoaders = [
       {
         loader: 'file-loader',
         options: {
-          name: 'assets/fonts[name].[hash].[ext]',
+          name: '[name].[hash].[ext]',
           publicPath: '/',
           outputPath: 'assets/fonts/'
         }

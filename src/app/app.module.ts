@@ -8,7 +8,6 @@ import { AppDirective } from "./app.directive";
 
 export const PhonecatApp = angular
   .module("phonecatApp", [ngRoute, CoreModule, PhoneListModule])
-  
   .config(configure)
   .controller("appController", AppController)
   .directive("pcApp", () => new AppDirective()).name;
