@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ENV = process.env.NODE_ENV || 'development'
 
 const webpackConfigEntryPoints = {
-  app: './bootstrap.ts'
+  app: './index.ts'
 }
 
 const webpackConfigLoaders = [
@@ -13,31 +13,49 @@ const webpackConfigLoaders = [
   {
     test: /\.ts$/,
     exclude: [/node_modules/],
-    loader: 'ts-loader'
+    loader: 'ts-loader',
+    include: [
+      path.resolve(__dirname, 'src'),
+    ]
   },
 
   // Styles
   {
     test: /\.css$/,
-    loaders: ['style-loader', 'css-loader']
+    use: ['style-loader', { loader: 'css-loader', options: { url: true } }],
+    include: path.resolve(__dirname, 'assets')
   },
 
   // less
   {
     test: /\.less$/,
-    include: path.join(__dirname, './src/styles'),
-    loader: ['style-loader', 'css-loader', 'less-loader']
+    use: [
+      {
+        loader: 'style-loader' // creates style nodes from JS strings
+      },
+      {
+        loader: 'css-loader', // translates CSS into CommonJS
+        options: { url: true }
+      },
+      {
+        loader: 'less-loader' // compiles Less to CSS
+      }
+    ],
+    include: [
+      path.resolve(__dirname, 'src'),
+    ]
   },
   // images/fonts
   {
     test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-    use: 'base64-inline-loader',
+    use: 'base64-inline-loader'
   },
 
   // HTML
   {
     test: /\.html$/,
-    loader: 'raw-loader'
+    loader: 'raw-loader',
+    include: path.resolve(__dirname, 'src')
   }
 ]
 
@@ -50,7 +68,9 @@ const webpackConfigPlugins = [
     host: '0.0.0.0',
     port: process.env.npm_package_config_port
   }),
-  new CopyWebpackPlugin([{ from:path.join( __dirname,'/src/phones'), to: 'phones' }])
+  new CopyWebpackPlugin([
+    { from: path.join(__dirname, 'phones'), to: 'src/phones' }
+  ])
 ]
 
 module.exports = {

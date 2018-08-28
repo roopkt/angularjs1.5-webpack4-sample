@@ -10,6 +10,6 @@ export class PhoneListController implements ng.IController {
   }
 
   imageUrl(url) {
-    return require('../../assets/images/phones/' + url);
+    return require('../../../assets/images/phones/' + url);
   }
 }
