@@ -1,7 +1,7 @@
 import * as angular from 'angular';
 import * as ngRoute from 'angular-route';
 import { configure } from './app.config';
-import { PhonecatApp } from '../../src';
+import { PhonecatApp } from '../../module-app';
 import { AppController } from './app.controller';
 import { AppDirective } from './app.directive';
 

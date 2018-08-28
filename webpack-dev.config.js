@@ -2,7 +2,8 @@ const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-
+const appDir = 'example-app/'
+const moduleDir = 'module-app/'
 const ENV = process.env.NODE_ENV || 'development'
 
 const webpackConfigEntryPoints = {
@@ -10,12 +11,22 @@ const webpackConfigEntryPoints = {
 }
 
 const webpackConfigLoaders = [
+  // Scripts
+  {
+    test: /\.ts$/,
+    exclude: [/node_modules/],
+    loader: 'ts-loader',
+    include: [
+      path.resolve(__dirname, moduleDir),
+      path.resolve(__dirname, appDir)
+    ]
+  },
   // Styles
   {
     test: /\.css$/,
     loader: 'style-loader!css-loader',
     include: [
-      path.join(__dirname, 'example'),
+      path.join(__dirname, appDir),
       path.join(__dirname, 'node_modules/bootstrap')
     ]
   },
@@ -37,16 +48,7 @@ const webpackConfigLoaders = [
     ],
     include: [path.resolve(__dirname, 'assets')]
   },
-  // Scripts
-  {
-    test: /\.ts$/,
-    exclude: [/node_modules/],
-    loader: 'ts-loader',
-    include: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'example')
-    ]
-  },
+
   // images/fonts
   {
     test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
@@ -58,8 +60,8 @@ const webpackConfigLoaders = [
     test: /\.html$/,
     loader: 'raw-loader',
     include: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'example')
+      path.resolve(__dirname, moduleDir),
+      path.resolve(__dirname, appDir)
     ]
   }
 ]
@@ -85,12 +87,12 @@ const webpackConfigPlugins = [
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
-  context: path.resolve('example'),
+  context: path.resolve(appDir),
   entry: webpackConfigEntryPoints,
   resolve: {
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: path.join(__dirname, 'example/tsconfig.app.json')
+        configFile: path.join(__dirname, appDir + 'tsconfig.app.json')
       })
     ],
     // Add `.ts` as a resolvable extension.
@@ -103,7 +105,7 @@ module.exports = {
   plugins: webpackConfigPlugins,
   devServer: {
     publicPath: '/',
-    contentBase: path.resolve(__dirname, 'example'),
+    contentBase: path.resolve(__dirname, appDir),
     historyApiFallback: {
       index: '/'
     },

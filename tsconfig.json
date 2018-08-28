@@ -21,8 +21,8 @@
   },
   "compileOnSave": false,
   "include": [
-    "src/app/**/*",
-    "src/index.ts",
+    "module-app/app/**/*",
+    "module-app/index.ts",
     "karma-prod.conf.js",
     "karma-dev.conf.js"
   ],
