@@ -10,21 +10,9 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "noEmitHelpers": true,
-    "baseUrl": "./",
-    "paths": {
-      "@nodemodules/*": ["node_modules/*"],
-      "@styles/*": ["assets/styles/*"],
-      "@assets/*": ["assets/*"],
-      "@fonts/*": ["assets/fonts*"],
-      "@images/*": ["assets/images*"],
-    }
+    "baseUrl": ".",
+    "paths": {}
   },
   "compileOnSave": false,
-  "include": [
-    "module-app/app/**/*",
-    "module-app/index.ts",
-    "karma-prod.conf.js",
-    "karma-dev.conf.js"
-  ],
-  "exclude": ["node_modules", "dist","coverage","testresults"]
+  "exclude": ["./node_modules", "./dist", "./coverage", "./testresults"]
 }
