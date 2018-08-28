@@ -36,11 +36,7 @@
     "usb": "USB 2.0"
   },
   "id": "samsung-gem",
-  "images": [
-    "assets/images/phones/samsung-gem.0.jpg",
-    "assets/images/phones/samsung-gem.1.jpg",
-    "assets/images/phones/samsung-gem.2.jpg"
-  ],
+  "images": ["samsung-gem.0.jpg", "samsung-gem.1.jpg", "samsung-gem.2.jpg"],
   "name": "Samsung Gem\u2122",
   "sizeAndWeight": {
     "dimensions": ["55.5 mm (w)", "113.0 mm (h)", "12.4 mm (d)"],

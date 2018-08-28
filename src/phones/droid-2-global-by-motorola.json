@@ -37,9 +37,9 @@
   },
   "id": "droid-2-global-by-motorola",
   "images": [
-    "assets/images/phones/droid-2-global-by-motorola.0.jpg",
-    "assets/images/phones/droid-2-global-by-motorola.1.jpg",
-    "assets/images/phones/droid-2-global-by-motorola.2.jpg"
+    "droid-2-global-by-motorola.0.jpg",
+    "droid-2-global-by-motorola.1.jpg",
+    "droid-2-global-by-motorola.2.jpg"
   ],
   "name": "DROID\u2122 2 Global by Motorola",
   "sizeAndWeight": {

@@ -36,11 +36,7 @@
     "usb": "USB 2.0"
   },
   "id": "t-mobile-g2",
-  "images": [
-    "assets/images/phones/t-mobile-g2.0.jpg",
-    "assets/images/phones/t-mobile-g2.1.jpg",
-    "assets/images/phones/t-mobile-g2.2.jpg"
-  ],
+  "images": ["t-mobile-g2.0.jpg", "t-mobile-g2.1.jpg", "t-mobile-g2.2.jpg"],
   "name": "T-Mobile G2",
   "sizeAndWeight": {
     "dimensions": ["60.4 mm (w)", "119.0 mm (h)", "14.2 mm (d)"],

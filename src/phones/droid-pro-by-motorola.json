@@ -36,10 +36,7 @@
     "usb": "USB 2.0"
   },
   "id": "droid-pro-by-motorola",
-  "images": [
-    "assets/images/phones/droid-pro-by-motorola.0.jpg",
-    "assets/images/phones/droid-pro-by-motorola.1.jpg"
-  ],
+  "images": ["droid-pro-by-motorola.0.jpg", "droid-pro-by-motorola.1.jpg"],
   "name": "DROID\u2122 Pro by Motorola",
   "sizeAndWeight": {
     "dimensions": ["61.0 mm (w)", "119.0 mm (h)", "11.7 mm (d)"],

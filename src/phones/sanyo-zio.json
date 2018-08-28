@@ -36,11 +36,7 @@
     "usb": "USB 2.0"
   },
   "id": "sanyo-zio",
-  "images": [
-    "assets/images/phones/sanyo-zio.0.jpg",
-    "assets/images/phones/sanyo-zio.1.jpg",
-    "assets/images/phones/sanyo-zio.2.jpg"
-  ],
+  "images": ["sanyo-zio.0.jpg", "sanyo-zio.1.jpg", "sanyo-zio.2.jpg"],
   "name": "SANYO ZIO",
   "sizeAndWeight": {
     "dimensions": ["58.6 mm (w)", "116.0 mm (h)", "12.2 mm (d)"],

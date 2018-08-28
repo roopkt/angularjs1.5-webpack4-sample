@@ -37,11 +37,11 @@
   },
   "id": "samsung-transform",
   "images": [
-    "assets/images/phones/samsung-transform.0.jpg",
-    "assets/images/phones/samsung-transform.1.jpg",
-    "assets/images/phones/samsung-transform.2.jpg",
-    "assets/images/phones/samsung-transform.3.jpg",
-    "assets/images/phones/samsung-transform.4.jpg"
+    "samsung-transform.0.jpg",
+    "samsung-transform.1.jpg",
+    "samsung-transform.2.jpg",
+    "samsung-transform.3.jpg",
+    "samsung-transform.4.jpg"
   ],
   "name": "Samsung Transform\u2122",
   "sizeAndWeight": {

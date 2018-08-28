@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -29,34 +28,12 @@ const webpackConfigLoaders = [
     include: path.join(__dirname, './src/styles'),
     loader: ['style-loader', 'css-loader', 'less-loader']
   },
-  //images
+  // images/fonts
   {
-    test: /\.(jpg|jpeg|png|gif)(\?.*)?$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: 'assets/images/[name].[hash].[ext]',
-          publicPath: '/',
-          outputPath: 'assets/images/'
-        }
-      }
-    ]
+    test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+    use: 'base64-inline-loader',
   },
-  //fonts
-  {
-    test: /\.(eot|otf|webp|ttf|woff|woff2|svg)(\?.*)?$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[name].[hash].[ext]',
-          publicPath: '/',
-          outputPath: 'assets/fonts/'
-        }
-      }
-    ]
-  },
+
   // HTML
   {
     test: /\.html$/,
@@ -73,7 +50,7 @@ const webpackConfigPlugins = [
     host: '0.0.0.0',
     port: process.env.npm_package_config_port
   }),
-  new CopyWebpackPlugin([{ from: 'assets', to: 'assets' }])
+  new CopyWebpackPlugin([{ from:path.join( __dirname,'/src/phones'), to: 'phones' }])
 ]
 
 module.exports = {

@@ -37,12 +37,12 @@
   },
   "id": "t-mobile-mytouch-4g",
   "images": [
-    "assets/images/phones/t-mobile-mytouch-4g.0.jpg",
-    "assets/images/phones/t-mobile-mytouch-4g.1.jpg",
-    "assets/images/phones/t-mobile-mytouch-4g.2.jpg",
-    "assets/images/phones/t-mobile-mytouch-4g.3.jpg",
-    "assets/images/phones/t-mobile-mytouch-4g.4.jpg",
-    "assets/images/phones/t-mobile-mytouch-4g.5.jpg"
+    "t-mobile-mytouch-4g.0.jpg",
+    "t-mobile-mytouch-4g.1.jpg",
+    "t-mobile-mytouch-4g.2.jpg",
+    "t-mobile-mytouch-4g.3.jpg",
+    "t-mobile-mytouch-4g.4.jpg",
+    "t-mobile-mytouch-4g.5.jpg"
   ],
   "name": "T-Mobile myTouch 4G",
   "sizeAndWeight": {

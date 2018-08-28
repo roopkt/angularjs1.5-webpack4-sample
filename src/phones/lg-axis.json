@@ -36,11 +36,7 @@
     "usb": "USB 2.0"
   },
   "id": "lg-axis",
-  "images": [
-    "assets/images/phones/lg-axis.0.jpg",
-    "assets/images/phones/lg-axis.1.jpg",
-    "assets/images/phones/lg-axis.2.jpg"
-  ],
+  "images": ["lg-axis.0.jpg", "lg-axis.1.jpg", "lg-axis.2.jpg"],
   "name": "LG Axis",
   "sizeAndWeight": {
     "dimensions": ["56.0 mm (w)", "116.0 mm (h)", "16.0 mm (d)"],
