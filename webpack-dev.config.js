@@ -91,9 +91,9 @@ module.exports = {
   entry: webpackConfigEntryPoints,
   resolve: {
     plugins: [
-      new TsconfigPathsPlugin({
-        configFile: path.join(__dirname, appDir + 'tsconfig.app.json')
-      })
+      // new TsconfigPathsPlugin({
+      //   configFile: path.join(__dirname, appDir + 'tsconfig.app.json')
+      // })
     ],
     // Add `.ts` as a resolvable extension.
     extensions: ['.tsx', '.ts', '.js', '.html']

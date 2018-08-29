@@ -15,12 +15,6 @@
       "@phone/*": ["../src/*"],
     }
   },
-  "include": [
-    "example/app/**/*",
-    "example/index.ts",
-    "karma-prod.conf.js",
-    "karma-dev.conf.js"
-  ],
   "exclude": [
     "../../node_modules",
     "**/*.spec.ts"

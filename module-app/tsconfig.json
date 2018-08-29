@@ -11,7 +11,9 @@
     "moduleResolution": "node",
     "noEmitHelpers": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@phoneModule/*": ["./module-app/*"],
+    }
   },
   "compileOnSave": false,
   "exclude": ["./node_modules", "./dist", "./coverage", "./testresults"]
