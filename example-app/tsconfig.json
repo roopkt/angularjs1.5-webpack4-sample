@@ -9,14 +9,12 @@
     "outDir": "../out-tsc/app",
     "target": "es5",
     "module": "es2015",
-    "types": [],
     "baseUrl": "./",
     "paths": {
-      "@phone/*": ["../src/*"],
-    }
+      "@phoneModule/*": ["../module-app/*"],
+    },
+    "types": ["node"],
+    "typeRoots": ["../node_modules/@types"]
   },
-  "exclude": [
-    "../../node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["../../node_modules", "**/*.spec.ts"]
 }

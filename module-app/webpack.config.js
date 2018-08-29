@@ -3,8 +3,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const appDir = __dirname
 const ENV = process.env.NODE_ENV || 'production'
-const dist = path.resolve(appDir, '../dist/')
-const pathsToClean = [dist]
+const dist = path.join(appDir, '../dist/')
+const pathsToClean = ['dist']
 const webpackConfigEntryPoints = {
   app: './index.ts'
 }
@@ -45,7 +45,7 @@ const webpackConfigLoaders = [
   // images/fonts
   {
     test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-    use: 'base64-inline-loader'
+    use: ['base64-inline-loader?limit=1000']
   },
 
   // HTML
@@ -55,7 +55,6 @@ const webpackConfigLoaders = [
     include: [appDir]
   }
 ]
-
 const webpackConfigPlugins = [
   new CopyWebpackPlugin([
     {
@@ -64,8 +63,23 @@ const webpackConfigPlugins = [
       force: true
     }
   ]),
-  new CleanWebpackPlugin(pathsToClean)
+  new CleanWebpackPlugin(pathsToClean, {
+    root: process.cwd()
+  })
 ]
+
+const externals = {
+  angular: 'angular',
+  'angular-route': 'angular-route',
+  bootstrap: 'bootstrap',
+  jquery: 'jQuery',
+  lodash: {
+    commonjs: 'lodash',
+    commonjs2: 'lodash',
+    amd: 'lodash',
+    root: '_'
+  }
+}
 
 module.exports = {
   mode: ENV,
@@ -75,7 +89,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.html']
   },
-  watch: true,
+  watch: false,
   module: {
     rules: webpackConfigLoaders
   },
@@ -87,5 +101,6 @@ module.exports = {
   },
   performance: {
     hints: process.env.NODE_ENV === 'production' ? 'warning' : false
-  }
+  },
+  externals: externals
 }

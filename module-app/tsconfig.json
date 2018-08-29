@@ -13,7 +13,7 @@
     "baseUrl": ".",
     "paths": {
       "@phoneModule/*": ["../module-app/*"],
-    }
+    },
   },
   "compileOnSave": false,
   "exclude": ["../node_modules", "../dist", "../coverage", "../testresults"]
