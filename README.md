@@ -7,3 +7,8 @@
 
 There are 2 apps in this sample. `Example` app is using `Module` app.
 I am using Webpack to bundle and serve project.
+
+- angular
+- Webpack
+- Jasmine
+- karma

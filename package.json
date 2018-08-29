@@ -6,6 +6,7 @@
     "port": "9000"
   },
   "scripts": {
+    "example:test": "karma start ./example-app/karma.conf.js",
     "example:start": "webpack-dev-server --config ./example-app/webpack.config.js --open -d -p",
     "build": "webpack --config ./module-app/webpack.config.js",
     "test": "karma start ./module-app/karma-build.conf.js",
