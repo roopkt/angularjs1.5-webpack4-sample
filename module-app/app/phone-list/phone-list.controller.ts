@@ -5,5 +5,10 @@ export class PhoneListController implements ng.IController {
   static $inject = ['$scope', 'phoneService'];
   constructor(public $scope: any, private phoneService: PhoneService) {}
 
-  $onInit() {    this.phoneService.query().then(phones => (this.phones = phones));
-  }  imageUrl(url) {    return require('../../../assets/images/phones/' + url);  }}
+  $onInit() {
+    this.phoneService.query().then(phones => (this.phones = phones));
+  }
+  imageUrl(url) {
+    return require('../../../assets/images/phones/' + url);
+  }
+}
