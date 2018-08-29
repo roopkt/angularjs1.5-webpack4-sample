@@ -6,11 +6,19 @@
     "port": "9000"
   },
   "scripts": {
+    "precommit": "lint-staged",
     "example:test": "karma start ./example-app/karma.conf.js",
     "example:start": "webpack-dev-server --config ./example-app/webpack.config.js --open -d -p",
     "build": "webpack --config ./module-app/webpack.config.js",
     "test": "karma start ./module-app/karma-build.conf.js",
-    "watch:tests": "karma start ./module-app/karma.conf.js"
+    "watch:tests": "karma start ./module-app/karma.conf.js",
+    "prettier": "prettier --write \"**/*.ts\""
+  },
+  "lint-staged": {
+    "*.{ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -57,6 +65,8 @@
     "karma-webpack": "^3.0.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.22.1",
     "ts-loader": "^4.5.0",
