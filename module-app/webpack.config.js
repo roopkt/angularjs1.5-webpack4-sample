@@ -1,11 +1,10 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const appDir = 'example-app/'
-const moduleDir = 'module-app/'
-const ENV = process.env.NODE_ENV || 'development'
-
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const appDir = __dirname
+const ENV = process.env.NODE_ENV || 'production'
+const dist = path.resolve(appDir, '../dist/')
+const pathsToClean = [dist]
 const webpackConfigEntryPoints = {
   app: './index.ts'
 }
@@ -16,19 +15,13 @@ const webpackConfigLoaders = [
     test: /\.ts$/,
     exclude: [/node_modules/],
     loader: 'ts-loader',
-    include: [
-      path.resolve(__dirname, moduleDir),
-      path.resolve(__dirname, appDir)
-    ]
+    include: [appDir]
   },
   // Styles
   {
     test: /\.css$/,
     loader: 'style-loader!css-loader',
-    include: [
-      path.join(__dirname, appDir),
-      path.join(__dirname, 'node_modules/bootstrap')
-    ]
+    include: [appDir, path.resolve(appDir, '../node_modules/bootstrap')]
   },
 
   // less
@@ -46,7 +39,7 @@ const webpackConfigLoaders = [
         loader: 'less-loader' // compiles Less to CSS
       }
     ],
-    include: [path.resolve(__dirname, 'assets')]
+    include: [path.resolve('assets')]
   },
 
   // images/fonts
@@ -59,43 +52,27 @@ const webpackConfigLoaders = [
   {
     test: /\.html$/,
     loader: 'raw-loader',
-    include: [
-      path.resolve(__dirname, moduleDir),
-      path.resolve(__dirname, appDir)
-    ]
+    include: [appDir]
   }
 ]
 
 const webpackConfigPlugins = [
-  new HtmlWebpackPlugin({
-    template: 'index.html',
-    inject: 'body',
-    hash: true,
-    env: ENV,
-    host: '0.0.0.0',
-    port: process.env.npm_package_config_port
-  }),
   new CopyWebpackPlugin([
     {
-      from: path.join(__dirname, 'phones/'),
+      from: path.resolve(appDir, '../phones/'),
       to: 'phones/',
       force: true
     }
-  ])
+  ]),
+  new CleanWebpackPlugin(pathsToClean)
 ]
 
 module.exports = {
-  mode: 'development',
+  mode: ENV,
   devtool: 'source-map',
   context: path.resolve(appDir),
   entry: webpackConfigEntryPoints,
   resolve: {
-    plugins: [
-      // new TsconfigPathsPlugin({
-      //   configFile: path.join(__dirname, appDir + 'tsconfig.app.json')
-      // })
-    ],
-    // Add `.ts` as a resolvable extension.
     extensions: ['.tsx', '.ts', '.js', '.html']
   },
   watch: true,
@@ -103,16 +80,12 @@ module.exports = {
     rules: webpackConfigLoaders
   },
   plugins: webpackConfigPlugins,
-  devServer: {
-    publicPath: '/',
-    contentBase: path.resolve(__dirname, appDir),
-    historyApiFallback: {
-      index: '/'
-    },
-    port: 3000,
-    inline: true,
-    https: false,
-    quiet: false,
-    compress: true
+  output: {
+    filename: 'phone-module-bundle.js',
+    libraryTarget: 'umd',
+    path: dist
+  },
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
   }
 }

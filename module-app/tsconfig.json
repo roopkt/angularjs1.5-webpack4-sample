@@ -12,9 +12,9 @@
     "noEmitHelpers": true,
     "baseUrl": ".",
     "paths": {
-      "@phoneModule/*": ["./module-app/*"],
+      "@phoneModule/*": ["../module-app/*"],
     }
   },
   "compileOnSave": false,
-  "exclude": ["./node_modules", "./dist", "./coverage", "./testresults"]
+  "exclude": ["../node_modules", "../dist", "../coverage", "../testresults"]
 }
