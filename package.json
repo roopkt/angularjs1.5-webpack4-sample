@@ -7,6 +7,7 @@
   },
   "scripts": {
     "lint-staged":"lint-staged",
+    "precommit": "lint-staged",
     "example:test": "karma start ./example-app/karma.conf.js",
     "example:start": "webpack-dev-server --config ./example-app/webpack.config.js --open -d -p",
     "build": "webpack --config ./module-app/webpack.config.js",
